@@ -1,0 +1,904 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    text-transform: none;
+    outline: 0;
+    list-style: none;
+    border: none;
+}
+
+:root{
+    --but_backgreound:#C29525;
+    --lift:#E2B646;
+    --footbackground:#16171A;
+    --formbackground:#272727;
+    --housebackground:#F5F5F5;
+    --testimonailjob:#9D3231;
+    --aboutusourteamhead:#4B4B4B;
+    --contacthead:#4B4B4B;
+    --socialiconshome:#777777;
+    --socialiconsfoot:#A7A7A7;
+    --loader:#262626;
+
+
+}
+
+body{
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+
+html{
+    font-size: 62.5%;
+}
+
+
+/* loader page */
+
+
+#loader{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: 100000000000;
+    background-color: var(--loader);
+    background-image: url(../4V0b.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 5%;
+
+}
+
+
+/* header section  */
+
+
+
+.header{
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba( 0, 0, 0, 0.8);
+
+
+
+    
+}
+
+.header .image{
+    opacity: 0.5;
+    background-image: url(../images/bg.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    background-position: center ;
+    top: 0%;
+    left: 0%;
+    right : 0%;
+    bottom: 0%;
+
+    animation-name: scale;
+    animation-duration: 20s;
+    animation-delay: 3s;
+    animation-iteration-count: 1;
+
+
+}
+
+@keyframes scale{
+    0%{
+        transform : scale(1.6);
+    }
+    
+    100% {
+        transform : scale(1);
+    }
+
+}
+
+.header-content{
+    position: absolute;
+    z-index: 10;
+    width: 50%;
+    min-height: 50vh;
+    left: 15%;
+    bottom:16vh;
+    text-align: left;
+    animation: tra 2s;
+    animation-delay: 3s;
+    animation-iteration-count: 1;
+}
+
+.header-content h1{
+    font-size: 6rem;
+    font-weight: 500;
+    color: white;
+    line-height: 1.3;
+    margin: 10px 0px;
+
+}
+
+.header-content p{
+    margin: 10px 0px;
+    font-size: 4rem;
+    font-weight: 200;
+    line-height: 1.1;
+    letter-spacing: 2px;
+    color: white;
+
+
+}
+
+.header-content button{
+    background-color: var(--but_backgreound);
+    color: white;
+    margin: 15px 0px;
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 1.2;
+    letter-spacing: 2px;    
+    padding: 1.1rem 2.5rem;
+    
+
+}
+
+
+@keyframes tra{
+    0%{
+        transform: translateY(200%);
+    }
+
+    100%{
+        transform: translateY(0);
+    }
+}
+
+
+/* side bar section */
+
+.fa-bars{
+    position: fixed;
+    top: 6vh;
+    color: white;
+    font-size: 3rem;
+    z-index: 10;
+    right: 3vw;
+
+
+}
+
+
+a[href='#header']{
+
+    position: fixed;
+    bottom: 10vh;
+    z-index: 10;
+    right: 3vw;
+    background-color: var(--lift);
+    padding: 0.8rem 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+
+.fa-arrow-up{
+    color: white;
+    font-size: 2rem;
+
+
+}
+
+
+
+aside{
+    position: fixed;
+    width: 30vw;
+    height: 100vh;
+    background-color: white;
+    top: 0px;
+    right: -30vw;
+    bottom: 0px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+
+.open{
+ right: 0vw;
+}
+
+
+
+.close{
+    width: 100%;
+    text-align: left;
+    padding: 10px 30px;
+    margin-top: 5vh;
+    
+}
+.close .fa-xmark{
+    font-size: 3rem;
+    width: fit-content;
+    position: relative;
+    
+}
+.close span{
+    padding: 10px 0px;
+    width: 100px;
+    background-color: var(--but_backgreound);
+    margin-left: 30px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 0px;
+    left: 20px;
+    visibility: hidden;
+
+}
+
+.close span::before{
+    content: "";
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    border-width:10px ;
+    border-style: solid;
+    border-color:transparent var(--but_backgreound) transparent transparent ;
+    left: -20px;
+
+}
+.fa-xmark:hover span {
+    visibility: visible;
+    transition: all 0.3s linear;
+}
+
+
+
+aside .list li{
+margin: 1vh 0vh;
+text-align: center;
+}
+aside .list li a{
+    color: black;
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: 100;
+    letter-spacing: 2px;
+    line-height: 1.7;
+    position: relative;
+
+}
+
+aside .list li a::before{
+    content: attr(data-content);
+    position: absolute;
+    z-index: 10;
+    width: 0;
+    transition: all 0.3s linear;
+    top: -10px;
+    left: 0px;
+    white-space: nowrap;
+    overflow: hidden;
+    color: var(--but_backgreound);
+}
+
+aside .list li a:hover::before{
+    width: 100%;
+}
+
+aside .social{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5vh;
+
+}
+
+
+aside .social li a .fa-brands{
+    color: white;
+    font-size: 1.6rem;
+}
+aside .social li a {
+    text-decoration: none;
+    width: 45px;
+    height: 45px;
+    margin: 0px 10px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--socialiconshome);
+}
+aside .social li a:hover{
+    background-color: var(--but_backgreound);
+    transition: all 0.3s linear;
+}
+
+
+/* about us section */
+.about-us{
+    background-color: var(--housebackground);
+    width: 100vw;
+    text-align: center;
+}
+.about-us h1{
+    color: var(--aboutusourteamhead);
+    display: inline-block;
+    width: fit-content;
+    margin: 60px 0px 40px 0px;
+    border-bottom: 1px solid var(--but_backgreound);
+    font-size: 6rem;
+    padding-bottom:50px ;
+    font-weight: 100;
+
+}
+.about-usc{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-bottom: 60px;
+    
+ 
+}
+
+.about-us .himage{
+    width: 30vw;
+    height: 50%;
+    position: relative;
+    top: -15px;
+
+}
+.about-us .himage img{
+    width: 100%;
+    height: 100%;
+}
+
+.about-us .house{
+    display: inline-block;
+    width: 20%;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.about-us .house:nth-of-type(1) ,.about-us .house:nth-of-type(6) {
+    margin-left: 15%;
+    margin-right: 15%;
+
+}
+.about-us .house:nth-of-type(2) ,.about-us .house:nth-of-type(7) {
+    margin-right: 15%;
+    margin-left: 15%;
+
+}
+
+.about-us .house:nth-of-type(3)  {
+    margin-left: 5%;
+    margin-right: 10%;
+  
+
+}
+.about-us .house:nth-of-type(5) {
+    margin-right: 5%;
+    margin-left: 10%;
+}
+
+.about-us .house i{
+    font-size: 3.5rem;
+    opacity: 0.7;
+}
+
+.about-us .house span{
+    font-size: 2.4rem;
+    position: relative;
+    bottom: 15px;
+    left: 10px;
+}
+
+.about-us .house .co{
+    margin-bottom: 20px;
+}
+
+.about-us .house p{
+    font-size: 1.5rem;
+    line-height: 1.5;
+    font-weight: 100;
+    opacity: 0.6;
+}
+
+/* team section */
+.team{
+    background-color: white;
+    width: 100vw;
+    text-align: center;
+}
+.team h1{
+    color: var(--aboutusourteamhead);
+    display: inline-block;
+    width: fit-content;
+    margin: 60px 0px 40px 0px;
+    border-bottom: 1px solid var(--but_backgreound);
+    font-size: 6rem;
+    padding-bottom:50px ;
+    font-weight: 100;
+
+}
+
+.team1{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-bottom: 60px;
+}
+.member{
+    overflow: hidden;
+    border-radius: 5px;
+    width: 330px;
+    height: 58vh;
+    margin: 20px 30px;
+    position: relative;
+
+}
+
+.member:hover .member1{
+    transform: translateY(0%);
+    transition: all 0.3s ease-in-out;
+}
+
+
+img{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+.member1{
+    position: absolute;
+    z-index: 10;
+    background-color: rgba( 0, 0, 0, 0.4);
+    width: 100%;
+    height: 100%;
+    bottom: 0vh;
+    top: 0vh;
+    right: 0px;
+    left: 0px;
+    transform: translateY(200%);
+    text-align: left;
+    padding: 3vh;
+
+}
+
+.member1 h2{
+    color: white;
+    font-size: 2.5rem;
+    margin: 28vh 0px 1vh 0px;
+}
+.member1 h3{
+    color: var(--testimonailjob);
+    font-size: 2rem;
+    margin: 1vh 0px;
+}
+
+.member1 p{
+    color: white;
+    font-size: 1.4rem;
+    margin: 1vh 0px;
+    line-height: 1.6;
+}
+
+.member1 button{
+background-color: var(--but_backgreound);
+color: white;
+margin: 2vh 0px;
+font-size: 2rem;
+font-weight: 300;
+line-height: 1.2;
+letter-spacing: 1px;    
+padding: 0.4rem 1rem;
+cursor: pointer;
+}
+
+
+/* contact section */
+.contact{
+    background-color: var(--formbackground);
+    width: 100%;
+    height: 99vh;
+    position: relative;
+}
+.contact .cform{
+    position: absolute;
+    top: -2vh;
+    right: 50%;
+    width: 70%;
+    transform: translateX(50%);
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.contact .cform img{
+    width: 30%;
+    height: 102vh;
+}
+.contact .form{
+    width: 70%;
+    height: 102vh;
+    background-color: var(--housebackground);
+    text-align: center;
+}
+.contact .form form input , .contact textarea{
+    background-color: transparent;
+    border-bottom: 2px dashed #636363;
+    width: 100%;
+    margin: 10px 0px;
+    padding: 8px 2px;
+    
+}
+.contact .form form input:focus , .contact textarea:focus{
+    border-bottom: 2px solid #636363;
+    transition: all 0.3s ease-in-out;
+
+}
+.contact textarea{
+    resize: none;
+}
+.contact .form form input::placeholder , .contact textarea::placeholder{
+    font-size: 2rem;
+}
+
+
+
+
+.form h1{
+    color: #272727;
+    display: inline-block;
+    width: fit-content;
+    margin: 30px 0px 20px 0px;
+    font-size: 6rem;
+    padding-bottom:50px ;
+    font-weight: 100;
+}
+.form form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 70%;
+    align-items: center;
+    padding: 10vh;
+}
+
+form input[type='submit']{
+    background-color: var(--but_backgreound)!important;
+    color: white;
+    border: none!important;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    
+
+}
+
+/* form message */
+
+form .input {
+   position: relative;
+   width: 100%;
+}
+
+.danger{
+    position: absolute;
+    z-index: 1000;
+    top: 100%;
+    background-color: white;
+    width: 80%;
+    padding: 2vh;
+    font-size: 1.8rem;
+    right: 50%;
+    transform: translateX(50%);
+
+}
+.danger::after{
+    content: "";
+    position: absolute;
+    top: -40px;
+    right:75%;
+    border-width: 20px;
+    border-style:solid ;
+    border-color: transparent transparent white transparent;
+}
+
+.danger span{
+    background-color: var(--but_backgreound);
+    color: white;
+    font-size: 4rem;
+    margin: 0px 5px;
+    padding: 0px 4px;
+}
+
+
+
+/* footer secton */
+footer{
+    background-color: var(--footbackground);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 50px 0px;
+}
+footer p{
+    font-size: 2rem;
+    color: white;
+    opacity: 0.7;
+    margin:20px 13vw;
+}
+footer .social{
+    width: fit-content;
+    margin:20px 13vw;
+}
+footer .social li{
+    display: inline-block;
+    margin: 0px 15px;
+}
+footer .social li .fa-brands{
+    font-size: 2.5rem;
+    color: white;
+    opacity: 0.7;
+}
+
+
+
+/* max-width= 1200px */
+
+@media (max-width:1200px){
+    aside{
+        width: 50vw;
+        right: -50vw;
+    }
+    html{
+        font-size: 40%;
+    }
+    aside .social li a {
+        text-decoration: none;
+        width: 40px;
+        height: 40px;
+        margin: 0px 10px;
+
+    }
+    aside .social li a .fa-brands{
+        font-size: 1.9rem;
+    }
+    .about-usc{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+
+    }
+    .about-us .himage{
+        order: 1000;
+        position: relative;
+        top:0px;
+        width: 40%;
+    
+    }
+    .about-us .house{
+        width: 40%;
+        text-align: center;
+        padding: 10px;
+        margin: 40px 0px;
+        text-align: center;
+    }
+    .about-us .house:nth-of-type(3)  {
+        margin-left: 15%;
+        margin-right: 15%;
+      
+    
+    }
+    .about-us .house:nth-of-type(5) {
+        margin-right: 15%;
+        margin-left: 15%;
+    }
+    
+    .about-us .house i{
+        font-size: 5rem;
+
+    }
+    
+    .about-us .house span{
+        font-size: 3.8rem;        
+        bottom: 10px;
+    }
+    
+
+    
+    .about-us .house p{
+        font-size: 2.5rem;
+    }
+    footer .social li{
+
+        margin: 0px 10px;
+    }footer p{
+        font-size: 2.5rem;
+        margin:20px 10vw;
+    }
+    footer .social li .fa-brands{
+        font-size: 2.8rem;
+    }
+
+    footer .social{
+        width: fit-content;
+        margin:20px 10vw;
+    }
+    .member1 h2{
+        color: white;
+        font-size: 3rem;
+        margin: 28vh 0px 1vh 0px;
+    }
+    .member1 h3{
+    
+        font-size: 2.8rem;
+        margin: 1vh 0px;
+    }
+    
+    .member1 p{
+
+        font-size: 2.1rem;
+        margin: 1vh 0px;
+
+    }
+    
+    .member1 button{
+
+    margin: 2vh 0px;
+    font-size: 2.6rem;
+
+    }
+    .contact .cform{
+        width: 90%;
+    }
+    .form form{
+        justify-content: space-between;
+    }
+
+    .form form{
+        height: 70%;
+        padding: 2vh 5vh;
+    }
+    .contact .form form input , .contact textarea{
+
+        margin: 4px 0px;
+        padding: 2px 2px;
+        
+    }
+    .form h1{
+        margin: 10px 0px 10px 0px;
+        padding-bottom:10px ;
+    }
+
+}
+
+
+
+/* max-width = 500 px */
+@media (max-width:500px){
+    html{
+        font-size: 25%;
+    }
+    aside{
+        width: 100vw;
+        right: -100vw;
+    }
+    aside .social li a .fa-brands{
+        font-size: 2.5rem;
+    }
+    .about-us .house{
+        width: 45%;
+
+    }
+    .about-us .house i{
+        font-size: 4rem;
+
+    }
+    
+    .about-us .house span{
+        font-size: 3.4rem;
+        bottom: 6px;
+    }
+    
+
+    
+    .about-us .house p{
+        font-size: 2.8rem;
+    }
+    footer p{
+        font-size: 3.4rem;
+    }
+    footer .social li .fa-brands{
+        font-size: 3.5rem;
+    }
+    .member1 h2{
+        color: white;
+        font-size: 3.8rem;
+        margin: 33vh 0px 1vh 0px;
+    }
+    .member1 h3{
+    
+        font-size: 3.5rem;
+        margin: 1vh 0px;
+    }
+    
+    .member1 p{
+
+        font-size: 2.5rem;
+        margin: 1vh 0px;
+
+    }
+    
+    .member1 button{
+
+    margin: 2vh 0px;
+    font-size: 3.1rem;
+    padding: 1rem 1.5rem;
+
+    }
+    .contact .cform img{
+        width: 0%;
+
+    }
+    .contact .form{
+        width: 100%;
+    }
+    .contact .form form input::placeholder , .contact textarea::placeholder{
+        font-size: 5rem;
+    }
+    form input[type='submit']{
+
+        font-size: 4rem;
+    }   
+    .danger{
+        font-size: 4rem;
+    
+    }
+    
+    .danger span{
+        background-color: var(--but_backgreound);
+        color: white;
+        font-size: 7rem;
+
+    }
+    .contact .form form input , .contact textarea{
+
+        margin: 4px 0px;
+        padding: 2px 2px;
+        justify-content: space-between;
+        
+    }
+
+    .form form{
+        height: 70%;
+        padding: 2vh 5vh;
+    }
+    .form h1{
+        margin: 10px 0px 10px 0px;
+        padding-bottom:10px ;
+    }
+
+}
